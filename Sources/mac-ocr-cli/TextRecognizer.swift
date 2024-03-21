@@ -84,7 +84,6 @@ class TextRecognizer {
         }
 
         var lines: [String] = []
-        lines.append("\(self.imageWidth)x\(self.imageHeight) \(self.imageFile)")
         if let observations = self.observations {
             for observation in observations {
                 let confidence = observation.confidence
@@ -94,7 +93,7 @@ class TextRecognizer {
                 let y = Int(boudingBox.origin.y)
                 let width = Int(boudingBox.size.width)
                 let height = Int(boudingBox.size.height)
-                lines.append("\(confidence) [\(x),\(y),\(width),\(height)] \(text)")
+                lines.append("\(text)")
             }
         }
         return lines.joined(separator: "\n")
